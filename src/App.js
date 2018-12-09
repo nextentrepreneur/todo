@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import List from './List/List';
+import NavBar from './NavBar/NavBar'
 import ListForm from './ListForm/ListForm';
 import 'typeface-roboto';
 import './App.css';
@@ -32,7 +33,9 @@ class App extends Component {
     return (
       <div className="listsWrapper">
         <div className="listsHeader">
-          <div className="heading">ToDo</div>
+          <div>
+            <NavBar />  
+          </div>
         </div>
         <div className="listsBody">
           {

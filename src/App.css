@@ -27,7 +27,7 @@ body {
 .listsHeader {
   display: flex;
   flex: 1 1 5%;
-  min-height: 1.5em;
+  min-height: 1.7em;
   max-height: 2em;
   font-size: 3.2em;
   color: rgb(165, 206, 112);
@@ -36,7 +36,6 @@ body {
   align-content: center;
   padding:5px 0px 20px 0px;
   margin-bottom: 2px;
-  background-color: rgba(9, 47, 78, 0.5);
   text-shadow: 3px 3px 10px #000;
   display: block;
 }
