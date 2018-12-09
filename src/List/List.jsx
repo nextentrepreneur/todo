@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'typeface-roboto';
 import './List.css';
 import PropTypes from 'prop-types';
 
