@@ -9,15 +9,24 @@ class List extends Component{
         super(props);
         this.listContent = props.listContent;
         this.listId = props.listId;
-        }
+        this.handleRemoveList = this.handleRemoveList.bind(this);
+    }
 
-        render(props){
-            return(
-                <div className="list fade-in">
-                    <p className="listContent">{ this.listContent }</p>
-                </div>
-            )
-        }
+    handleRemoveList(id){
+        this.props.removeList(id);
+    }
+    
+    render(props){
+        return(
+            <div className="list fade-in">
+                <span className="closebtn" 
+                    onClick={() => this.handleRemoveList(this.listId)}>
+                    &times;
+                </span>
+                <p className="listContent">{ this.listContent }</p>
+            </div>
+         )
+    }
 }
 
 List.PropTypes = {

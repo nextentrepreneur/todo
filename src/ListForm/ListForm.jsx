@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
-import Button from '@material-ui/core/Button';
 import './ListForm.css';
 
 class ListForm extends Component{
@@ -36,7 +35,7 @@ class ListForm extends Component{
         return(
             <div className="formWrapper">
                 <input className="listInput"
-                placeholder="Add new item"
+                placeholder="Add new item..."
                 value={this.state.newListContent}
                 onChange={this.handleUserInput} />
                 <button className="listButton"
