@@ -1,5 +1,5 @@
 .list {
-    padding:10px 10px 38px 34px;
+    padding:10px 10px 10px 34px;
     height: auto; 
     margin: auto;
     margin-bottom: 8px;
@@ -27,7 +27,8 @@
     float:left;
     padding-right: 70px;
     padding-bottom: 10px;
-    display: block;
+    word-break: break-all;
+    display: list-item;
   }
   
   .closebtn {
