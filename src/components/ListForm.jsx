@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
-import './ListForm.css';
+import '../styles/ListForm.css';
 
 class ListForm extends Component{
     constructor(props){

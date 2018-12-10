@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import List from './List/List';
-import NavBar from './NavBar/NavBar'
-import ListForm from './ListForm/ListForm';
+import List from '../src/components/List';
+import NavBar from '../src/components/NavBar'
+import ListForm from '../src/components/ListForm';
 import { DB_CONFIG } from './Config/config';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import 'typeface-roboto';
-import './App.css';
+import '../src/styles/App.css';
 
 class App extends Component {
 
