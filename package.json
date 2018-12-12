@@ -2,11 +2,13 @@
   "name": "todoapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nextentrepreneur.github.com/todo/",
   "dependencies": {
     "@material-ui/core": "^3.6.1",
     "concurrently": "^4.1.0",
     "electron-is-dev": "^1.0.1",
     "firebase": "^5.7.0",
+    "gh-pages": "^2.0.1",
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-redux": "^6.0.0",
@@ -26,6 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
     "electron": " electron .",
     "electron-dev": "concurrently \"SET BROWSER=none&&npm run start\" \"wait-on http://localhost:3000 && electron .\""
@@ -51,7 +55,7 @@
     "build",
     "node_modules"
   ],
-  "homepage": "https://github.com/nextentrepreneur/todo#readme",
+  
   "author": "Sujit Roy",
   "license": "ISC",
   "bugs": {
