@@ -4,10 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.6.1",
-    "@material-ui/icons": "3.0.1",
     "concurrently": "^4.1.0",
-    "electron": "^3.0.10",
-    "electron-builder": "^20.38.2",
     "electron-is-dev": "^1.0.1",
     "firebase": "^5.7.0",
     "react": "16.6.3",
@@ -18,11 +15,19 @@
     "typeface-roboto": "0.0.54",
     "wait-on": "^3.2.0"
   },
+  "build": {
+    "extends": null
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextentrepreneur/todo.git"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "electron": " electron .",
     "electron-dev": "concurrently \"SET BROWSER=none&&npm run start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "main": "public/main.js",
@@ -36,15 +41,20 @@
     "not op_mini all"
   ],
   "description": "This application is built with Electron, React, Redux, and FireBase.",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nextentrepreneur/todo.git"
+  "devDependencies": {
+    "electron": "^3.0.10",
+    "electron-builder": "^20.38.2",
+    "foreman": "^3.0.1"
   },
+  "files": [
+    "*.js",
+    "build",
+    "node_modules"
+  ],
+  "homepage": "https://github.com/nextentrepreneur/todo#readme",
   "author": "Sujit Roy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nextentrepreneur/todo/issues"
-  },
-  "homepage": "https://github.com/nextentrepreneur/todo#readme"
+  }
 }

@@ -10,7 +10,9 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({height: 680, width: 1000, minHeight: 680, minWidth: 1000});
-  mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
+ // mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
+  mainWindow.loadURL('http://localhost:3000');
+  mainWindow.webContents.openDevTools();
   mainWindow.on('closed', () => mainWindow = null);
 }
 
