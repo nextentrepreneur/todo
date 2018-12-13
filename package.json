@@ -31,15 +31,13 @@
     "url": "git+https://github.com/nextentrepreneur/todo.git"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "build --win",
+    "ship": "build --win -p always",
     "test": "react-scripts test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
-    "electron": " electron .",
-    "publish": "node_modules/.bin/build --win -p always",
-    "electron-dev": "concurrently \"SET BROWSER=none&&npm run start\" \"wait-on http://localhost:3000 && electron .\""
+    "electron": " electron ."
   },
   "nsis": {
     "perMachine": true

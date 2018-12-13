@@ -47,11 +47,11 @@ let mainWindow;
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({height: 680, width: 1000, minHeight: 680, minWidth: 1000});
-  mainWindow.webContents.openDevTools();
+//  mainWindow.webContents.openDevTools();
 
   //Load the index.html here of the todo
-  mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
-//  mainWindow.loadURL('https://nextentrepreneur.github.io/todo/');
+//  mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
+  mainWindow.loadURL('https://nextentrepreneur.github.io/todo/');
   mainWindow.on('closed', () => mainWindow = null);
 }
 
