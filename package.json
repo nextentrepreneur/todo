@@ -35,6 +35,9 @@
     "electron": " electron .",
     "electron-dev": "concurrently \"SET BROWSER=none&&npm run start\" \"wait-on http://localhost:3000 && electron .\""
   },
+  "nsis": {
+    "perMachine": true
+  }
   "main": "public/main.js",
   "eslintConfig": {
     "extends": "react-app"
