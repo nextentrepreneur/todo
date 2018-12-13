@@ -29,7 +29,7 @@ class List extends Component{
     }
 }
 
-List.PropTypes = {
+List.propTypes = {
     listContent: PropTypes.string
 }
 
