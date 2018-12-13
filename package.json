@@ -48,6 +48,7 @@
   "devDependencies": {
     "electron": "^3.0.10",
     "electron-builder": "^20.38.2",
+    "electron-updater": "^4.0.6",
     "foreman": "^3.0.1"
   },
   "files": [
@@ -55,7 +56,6 @@
     "build",
     "node_modules"
   ],
-  
   "author": "Sujit Roy",
   "license": "ISC",
   "bugs": {
