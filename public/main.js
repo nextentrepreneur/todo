@@ -33,7 +33,7 @@ if (process.platform === 'win32') {
       {
         label: 'Quit',
         accelerator: 'Command+Q',
-        click() { app.quitAndInstall(); }
+        click() { app.quit(); }
       },
     ]
   })
@@ -87,7 +87,7 @@ autoUpdater.on('download-progress', (progressObj) => {
   sendStatusToWindow(log_message);
 })
 autoUpdater.on('update-downloaded', (info) => {
-  sendStatusToWindow('Update downloaded, it will be installed in 5 seconds.');
+  sendStatusToWindow('Update downloaded.');
 });
 
 // This method will be called when Electron has finished
@@ -99,7 +99,6 @@ app.on('ready',  function() {
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
     createWindow();
-    autoUpdater.checkForUpdatesAndNotify();
 });
 
 // Quit when all windows are closed.
@@ -109,7 +108,11 @@ app.on('window-all-closed', () => {
   }
 });
 
-// when receiving a quitAndInstall signal, quit and install the new version
-ipcMain.on("quitAndInstall", (event, arg) => {
-  autoUpdater.quitAndInstall();
-})
+//-------------------------------------------------------------------
+//
+// This will immediately download an update, then install when the
+// app quits.
+//-------------------------------------------------------------------
+app.on('ready', function()  {
+  autoUpdater.checkForUpdatesAndNotify();
+});
