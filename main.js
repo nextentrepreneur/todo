@@ -1,5 +1,5 @@
 const electron = require('electron');
-const {app, BrowserWindow, Notification,ipcMain, ipcRenderer} = require('electron')
+const {app, BrowserWindow, Menu, Notification,ipcMain, ipcRenderer} = require('electron')
 const log = require('electron-log');
 const{ autoUpdater } = require("electron-updater");
 
@@ -12,6 +12,33 @@ const isDev = require('electron-is-dev');
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file,level = 'info';
 log.info('Todo starting...');
+/*
+//-------------------------------------------------------------------
+// Define the menu
+//
+//-------------------------------------------------------------------
+let template = []
+if (process.platform === 'win32') {
+  const name = app.getName();
+  template.unshift({
+    label: name,
+    submenu: [
+      {
+        label: 'About ' + name,
+        role: 'about',
+        click: function() {
+          alert("Todo version",app.getVersion());
+        }
+      },
+      {
+        label: 'Quit',
+        accelerator: 'Command+Q',
+        click() { app.quit(); }
+      },
+    ]
+  })
+}
+*/
 
 // Keep a global reference of the window object, if don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -46,7 +73,7 @@ autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('Update-not-available');
 })
 autoUpdater.on('error', (err) => {
-  sendStatusToWindow('Error updating.');
+  sendStatusToWindow('Error updating.' + err);
 })
 autoUpdater.on('download-progress', (progressObj) => {
   let speed = ((progressObj.bytesPerSecond / 1000) / 1000).toFixed(1);
@@ -67,7 +94,13 @@ autoUpdater.on('update-downloaded', (info) => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 
-app.on('ready', createWindow);
+app.on('ready',  function() {
+  // Create the Menu
+//  const menu = Menu.buildFromTemplate(template);
+//  Menu.setApplicationMenu(menu);
+
+  createWindow();
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -76,54 +109,6 @@ app.on('window-all-closed', () => {
   }
 });
 
-app.on('activate', () => {
-  if (mainWindow === null) {
-    createWindow();
-  }
-});
-
-autoUpdater.on('update-downloaded', (info) => {
-  // Wait 5 seconds, then quit and install
-  // In your application, you don't need to wait 5 seconds.
-  // You could call autoUpdater.quitAndInstall(); immediately
-  setTimeout(function() {
-    autoUpdater.quitAndInstall();  
-  },5000)
-})
-
 app.on('ready', function()  {
-  autoUpdater.checkForUpdates();
+  autoUpdater.checkForUpdatesAndNotify();
 });
-
-//-----------------------------------------------------------------------
-// Auto updates
-//-----------------------------------------------------------------------
-/*
-    autoUpdater.on('checking-for-update', () => {
-    console.log("Checking for update...");
-   });
-    
-   autoUpdater.on('update-available', (info) => {
-    console.log("Update available.");
-   });
-    
-   autoUpdater.on('update-not-available', (info) => {
-    console.log("Update not availabe.");
-   });
-  
-   autoUpdater.on('error', (err) => {
-     console.log('Error in auto-updater');
-   });
-  
-   autoUpdater.on('download-progress', (progressObj) => {
-     console.log(`Download speed: ${progressObj.bytesPerSecond} - Downloaded ${progressObj.parcent}% (${progressObj.transferred} + '/' + ${progressObj.total} + )`);
-   });
-  
-   autoUpdater.on('update-downloaded', (info) => {
-    console.log('Update downloaded; will install in now')
-  });
-
-   autoUpdater.on('update-downloaded', (info) => {
-      autoUpdater.quitAndInstall();
- });
- */
