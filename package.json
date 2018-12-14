@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "homepage": "https://nextentrepreneur.github.com/todo/",
+  "main": "public/main.js",
+  "build":{
+    "extends":null
+  },
   "dependencies": {
     "@material-ui/core": "^3.6.1",
     "concurrently": "^4.1.0",
@@ -40,7 +44,6 @@
   "nsis": {
     "perMachine": true
   },
-  "main": "public/main.js",
   "eslintConfig": {
     "extends": "react-app"
   },
