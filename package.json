@@ -23,15 +23,13 @@
     "typeface-roboto": "0.0.54",
     "wait-on": "^3.2.0"
   },
-  "build": {
-    "extends": null
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextentrepreneur/todo.git"
   },
   "scripts": {
-    "build": "build --win",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "ship": "build --win -p always",
     "test": "react-scripts test",
     "predeploy": "npm run build",
