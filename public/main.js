@@ -12,7 +12,7 @@ const isDev = require('electron-is-dev');
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file,level = 'info';
 log.info('Todo starting...');
-/*
+
 //-------------------------------------------------------------------
 // Define the menu
 //
@@ -38,7 +38,7 @@ if (process.platform === 'win32') {
     ]
   })
 }
-*/
+
 
 // Keep a global reference of the window object, if don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -96,8 +96,8 @@ autoUpdater.on('update-downloaded', (info) => {
 
 app.on('ready',  function() {
   // Create the Menu
-//  const menu = Menu.buildFromTemplate(template);
-//  Menu.setApplicationMenu(menu);
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
 
   createWindow();
 });

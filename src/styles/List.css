@@ -6,7 +6,7 @@
     width: 60%;
     font-family: 'Lato', sans-serif;
     font-size: 1.4em;
-    color: #222;
+    color: rgb(206, 36, 163);
     background-color: #eed; 
     border-radius: 3px;
     box-shadow: 43x 3px 2px #333;
@@ -40,5 +40,5 @@
   }
   
   .closebtn:hover {
-      color: #AC2500;
+      color: rgb(110, 25, 25);
   }
