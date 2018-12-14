@@ -98,8 +98,8 @@ app.on('ready',  function() {
   // Create the Menu
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
-
-  createWindow();
+    createWindow();
+    autoUpdater.checkForUpdatesAndNotify();
 });
 
 // Quit when all windows are closed.
@@ -109,6 +109,7 @@ app.on('window-all-closed', () => {
   }
 });
 
-app.on('ready', function()  {
-  autoUpdater.checkForUpdatesAndNotify();
-});
+// when receiving a quitAndInstall signal, quit and install the new version
+ipcMain.on("quitAndInstall", (event, arg) => {
+  autoUpdater.quitAndInstall();
+})
