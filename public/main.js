@@ -24,13 +24,6 @@ if (process.platform === 'win32') {
     label: name,
     submenu: [
       {
-        label: 'About ' + name,
-        role: 'about',
-        click: function() {
-          alert("Todo version",app.getVersion());
-        }
-      },
-      {
         label: 'Quit',
         accelerator: 'Command+Q',
         click() { app.quit(); }
@@ -48,10 +41,7 @@ function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({height: 680, width: 1000, minHeight: 680, minWidth: 1000});
 //  mainWindow.webContents.openDevTools();
-
-  //Load the index.html here of the todo
-//  mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
-  mainWindow.loadURL('https://nextentrepreneur.github.io/todo/');
+  mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   mainWindow.on('closed', () => mainWindow = null);
 }
 
@@ -90,9 +80,6 @@ autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded.');
 });
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 
 app.on('ready',  function() {
   // Create the Menu
