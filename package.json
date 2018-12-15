@@ -5,7 +5,7 @@
   "license": "ISC",
   "private": true,
   "homepage": "./",
-  "main": "public/main.js",
+  "main": "public/electron.js",
   "build":{
     "appId": "com.sujit-react.todoapp",
 		"productName": "ToDO",
@@ -60,8 +60,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "local-build": "build — em.main=build/main.js",
-    "ship": "build — em.main=build/main.js -p always",
+    "local-build": "build — em.main=build/electron.js",
+    "ship": "build — em.main=build/electron.js -p always",
     "test": "react-scripts test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
