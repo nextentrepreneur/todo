@@ -60,6 +60,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "local-build": "build — em.main=build/main.js",
     "ship": "build — em.main=build/main.js -p always",
     "test": "react-scripts test",
     "predeploy": "npm run build",
