@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import List from './List';
-import NavBar from './NavBar'
-import ListForm from './ListForm';
-import { DB_CONFIG } from '../Config/config';
+import List from '../src/components/List';
+import NavBar from '../src/components/NavBar'
+import ListForm from '../src/components/ListForm';
+import { DB_CONFIG } from './Config/config';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import 'typeface-roboto';
-import '../styles/App.css';
+import './styles/App.css';
 
 class App extends Component {
 
@@ -26,7 +26,7 @@ class App extends Component {
   
   componentWillMount(){
     const previousLists = this.state.lists;
-
+    
     // DataSnapshot
     this.db.on('child_added', snap => {
       previousLists.push({
@@ -38,7 +38,7 @@ class App extends Component {
         lists: previousLists
       })
     })
-
+    
     this.db.on('child_removed', snap => {
       for(var i=0; i < previousLists.length; i++)
       {
@@ -51,7 +51,7 @@ class App extends Component {
         lists: previousLists
       })
     })
-
+    
   }
 
   addList(list){

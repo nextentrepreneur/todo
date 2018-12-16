@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'typeface-roboto';
 import '../src/styles/index.css';
-import App from '../src/components/App';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('todoapp'));
