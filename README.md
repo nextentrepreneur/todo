@@ -15,7 +15,7 @@ Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 And It will open electron app window.
 
-### `Download the latest release of ToDo app from This link`
+### `Download the latest release of ToDo app for your Desktop from This link`
 
 https://github.com/nextentrepreneur/todo/releases
 
