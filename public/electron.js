@@ -1,8 +1,7 @@
 const electron = require('electron');
-const {app, BrowserWindow, Menu, Notification,ipcMain, ipcRenderer} = require('electron')
+const {app, BrowserWindow, Menu,dialog, shell,Notification,ipcMain, ipcRenderer} = require('electron')
 const log = require('electron-log');
 const{ autoUpdater } = require("electron-updater");
-
 const path = require('path');
 const url = require('url');
 const isDev = require('electron-is-dev');
@@ -20,9 +19,27 @@ log.info('Todo starting...');
 let template = []
 if (process.platform === 'win32') {
   const name = app.getName();
+  const version = app.getVersion();
   template.unshift({
     label: name,
     submenu: [
+      {
+      label: 'About',
+          click: () => {
+            dialog.showMessageBox(mainWindow, {
+              type: 'info',
+              title: 'About',
+              message: 'todo is built by Sujit Roy',
+              detail: 'You can find me on GitHub @nextentrepreneur',
+            });
+          }
+        },
+        {
+          label: 'ToDo (v' + version + ')',
+          click: () => {
+            shell.openExternal('https://github.com/nextentrepreneur/todo');
+          }
+        },
       {
         label: 'Quit',
         accelerator: 'Command+Q',
