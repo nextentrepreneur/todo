@@ -2,66 +2,13 @@ import React, { Component } from 'react';
 import List from '../src/components/List';
 import NavBar from '../src/components/NavBar'
 import ListForm from '../src/components/ListForm';
-import { DB_CONFIG } from './Config/config';
-import firebase from 'firebase/app';
+import { connect } from 'react-redux';
+import { getListsThunk, watchListADDEvent, watchListRemoveEvent } from './actions/index';
 import 'firebase/database';
 import 'typeface-roboto';
 import './styles/App.css';
 
 class App extends Component {
-
-  constructor(props){
-    super(props);
-    this.addList = this.addList.bind(this);
-    this.removeList = this.removeList.bind(this);
-
-    this.app = firebase.initializeApp(DB_CONFIG);
-    this.db = this.app.database().ref().child('lists');
-    
-    //We are going to setup the React state of our component
-    this.state = {
-      lists: [],
-    }
-  }
-  
-  componentWillMount(){
-    const previousLists = this.state.lists;
-    
-    // DataSnapshot
-    this.db.on('child_added', snap => {
-      previousLists.push({
-        id: snap.key,
-        listContent: snap.val().listContent,
-      })
-
-      this.setState({
-        lists: previousLists
-      })
-    })
-    
-    this.db.on('child_removed', snap => {
-      for(var i=0; i < previousLists.length; i++)
-      {
-        if(previousLists[i].id === snap.key){
-          previousLists.splice(i, 1);
-        }
-      }
-
-      this.setState({
-        lists: previousLists
-      })
-    })
-    
-  }
-
-  addList(list){
-    this.db.push().set({ listContent: list});
-  }
-
-  removeList(listId){
-    this.db.child(listId).remove();
-  }
-
   render() {
     return (
       <div className="listsWrapper">
@@ -71,8 +18,8 @@ class App extends Component {
           </div>
         </div>
         <div className="listsBody">
-          {
-            this.state.lists.map((list) => {
+        {
+            this.props.lists.map((list) => {
               return(
                 <List listContent={list.listContent}
                   listId={list.id}
@@ -82,13 +29,24 @@ class App extends Component {
             })
             
           }
-          </div>
+        </div>
         <div className="listsFooter">
-          <ListForm addList={this.addList}  />
+          <ListForm />
         </div>
       </div>
     )
   }
 }
 
-export default App;
+const mapState = state => ({
+  lists: state
+})
+
+const mapDispatch = dispatch => {
+  dispatch(getListsThunk())
+  watchListADDEvent(dispatch)
+  watchListRemoveEvent(dispatch)
+  return {}
+}
+
+export default connect(mapState, mapDispatch)(App);

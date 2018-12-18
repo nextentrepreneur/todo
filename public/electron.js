@@ -42,7 +42,7 @@ if (process.platform === 'win32') {
         },
       {
         label: 'Quit',
-        accelerator: 'Command+Q',
+        accelerator: 'Ctrl+Q',
         click() { app.quit(); }
       },
     ]

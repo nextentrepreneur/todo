@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { removeListFromFirebase } from '../Config/firebase';
 import 'typeface-roboto';
 import '../styles/List.css';
 import PropTypes from 'prop-types';
@@ -13,7 +14,7 @@ class List extends Component{
     }
 
     handleRemoveList(id){
-        this.props.removeList(id);
+        removeListFromFirebase(this.listId);
     }
     
     render(props){

@@ -1,5 +1,5 @@
 ## TODO APP
-This application is built with Electron, React and FireBase.
+This application is built with Electron, React, Redux,Thunk and FireBase.
 
 ## Available Scripts
 

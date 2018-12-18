@@ -1,6 +1,6 @@
 {
   "name": "todoapp",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "author": "Sujit Roy",
   "license": "ISC",
   "private": true,
@@ -8,7 +8,7 @@
   "main": "public/electron.js",
   "build":{
     "appId": "com.sujit-react.todoapp",
-		"productName": "ToDO",
+		"productName": "ToDo",
 		"copyright": "Copyright © 2018 nextentrepreneur.",
 		"directories": {
 			"buildResources": "build",
