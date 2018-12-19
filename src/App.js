@@ -23,8 +23,7 @@ class App extends Component {
               return(
                 <List listContent={list.listContent}
                   listId={list.id}
-                  key={list.id}
-                  removeList = {this.removeList} />
+                  key={list.id} />
               )
             })
             

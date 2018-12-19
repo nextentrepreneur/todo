@@ -1,6 +1,8 @@
 import { GET_LISTS, ADD_LIST, REMOVE_LIST } from '../actions/types';
 
+// InitialState
 const initialState = []
+
  function Reducer(state = initialState, action){
      switch(action.type){
         case GET_LISTS:
